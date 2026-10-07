@@ -1,0 +1,26 @@
+﻿table_name,column_name,korean_name,meaning,dtype_clean,unit_or_values,used_in,teaching_use
+activity_batches,activity_date,활동 날짜,회원의 앱 활동이 기록된 날짜,date,YYYY-MM-DD,1~4교시,날짜별 파일과 회원별 요약
+activity_batches,member_id,회원 ID,회원 한 명을 구분하는 합성 식별자,string,M001 형식,1~8교시,파일 결합과 회원표 merge의 공통 열
+activity_batches,logged_in,로그인 여부,그 날짜에 한 번이라도 로그인했는지,boolean,True/False,2~5교시,활동일 수 계산
+activity_batches,app_opens,앱 실행 횟수,그 날짜에 앱을 연 횟수,integer,회,2~6교시,합계와 스케일링
+activity_batches,stay_time_min,앱 체류 시간,그 날짜에 앱을 사용한 총 시간. 일부 행에는 '미측정'이 들어 있음,number/string,분 또는 미측정,2~6교시,to_numeric과 결측 대체
+activity_batches,profile_views,프로필 조회 수,다른 회원의 프로필을 본 횟수. 일부 결측 포함,number,회,2~6교시,결측 확인과 회원별 합계
+activity_batches,recommendations_viewed,추천 열람 수,회사에서 제시한 추천 상대를 열어 본 횟수,integer,회,2~6교시,회원별 합계
+activity_batches,messages_sent,메시지 발송 수,서비스 안에서 보낸 메시지 횟수,integer,건,2~6교시,회원별 합계
+activity_batches,avg_reply_delay_sec,평균 답장 지연 시간,답장이 있었던 날의 평균 답장 소요 시간. 답장이 없으면 비어 있음,number,초,2~6교시,평균과 결측 대체
+병합 중 생성,source_file,출처 파일명,각 행이 어느 CSV에서 왔는지 남기는 추적용 열,string,activity_batch_01.csv 형식,2교시,여러 파일을 합친 뒤 출처 확인
+회원별 요약,active_days,로그인한 날 수,30일 가운데 logged_in이 True인 날의 합계,integer,일,4~8교시,회원 한 명당 한 행으로 요약
+회원별 요약,total_app_opens,총 앱 실행 횟수,30일 동안 app_opens의 합계,integer,회,4~8교시,집계와 전처리
+회원별 요약,total_stay_time_min,총 앱 체류 시간,숫자로 바꿀 수 있는 체류 시간의 합계,number,분,4~8교시,숫자 변환과 집계
+회원별 요약,total_profile_views,총 프로필 조회 수,30일 동안 프로필을 본 횟수의 합계,number,회,4~8교시,결측 처리 후 집계
+회원별 요약,total_recommendations_viewed,총 추천 열람 수,30일 동안 추천을 열어 본 횟수의 합계,integer,회,4~8교시,집계와 전처리
+회원별 요약,total_messages_sent,총 메시지 발송 수,30일 동안 보낸 메시지의 합계,integer,건,4~8교시,집계와 전처리
+회원별 요약,avg_reply_delay_sec,30일 평균 답장 지연,답장이 있었던 날들의 평균 답장 소요 시간,number,초,4~8교시,결측 대체와 스케일링
+회원별 요약,last_active_date,마지막 로그인 날짜,logged_in이 True였던 가장 최근 날짜,date,YYYY-MM-DD,4교시,최근 활동일 계산
+회원별 요약,days_since_last_activity,마지막 로그인 후 경과일,2026-07-01에서 마지막 로그인 날짜를 뺀 일수,number,일,4~8교시,모델 입력용 파생변수
+members,gender,성별,회원이 등록한 성별,category,남성/여성,4~8교시,범주형 전처리
+members,age,나이,기준일의 만 나이,integer,세,4~8교시,수치형 전처리
+members,residence_region,거주 지역,현재 거주 광역 지역,category,서울/경기 등,4~8교시,범주형 전처리와 API 필터
+members,membership_tier,회원권 등급,서비스 이용 요금제,category,베이직/프리미엄/VIP,4~8교시,범주형 전처리와 API 표시
+members,signup_channel,가입 경로,회원이 서비스를 알게 된 경로,category,SNS/검색광고 등,4~8교시,범주형 전처리
+members,meeting_scheduled,만남 일정 등록 여부,회사 시스템에 오프라인 만남 일정이 등록되어 있는지,boolean,True/False,4~6교시,연습용 정답 y. 실제 만남 성사 여부가 아님
