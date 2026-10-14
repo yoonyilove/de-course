@@ -1,0 +1,12 @@
+# 3주차 1교시 · Q1 전에 지원 API 켜기
+# VS Code에서 course_materials 폴더를 연 뒤 새 터미널에서 실행합니다.
+conda activate de-course
+python -m uvicorn week3.support_api:app --host 127.0.0.1 --port 8000
+
+# Uvicorn이 support_api.py를 불러오면서 회원 100명×16열 CSV를 메모리에 준비합니다.
+# 브라우저에서 아래 주소를 열어 {"status":"ok","rows":100}을 확인합니다.
+# http://127.0.0.1:8000/health
+# 이 터미널을 닫지 않은 채 1교시 노트북 Q1을 실행합니다.
+# address already in use가 나오면 이전 서버 터미널에서 Ctrl+C로 종료한 뒤 다시 실행합니다.
+# 노트북도 8000번을 사용하므로 수업 중 포트 번호만 임의로 바꾸지 않습니다.
+# 종료: 터미널에서 Ctrl+C
